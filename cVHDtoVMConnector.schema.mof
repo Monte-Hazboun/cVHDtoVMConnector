@@ -1,0 +1,10 @@
+[ClassVersion("1.0.0"), FriendlyName("pVHDtoVMConnector")]
+class pVHDtoVMConnector : OMI_BaseResource
+{
+    [Key, Description("VHD associated with the VM")] String VhdPath;
+    [Required, Description("ControllerType"), ValueMap{"IDE", "SCSI"},Values{"IDE", "SCSI"}] String ControllerType;
+    [Required, Description("The Number of the Controller")] Uint32 ControllerNumber;
+    [Required, Description("The Location of the disk in the Controller")] Uint32 ControllerLocation;
+	[Required, Description("Name of the VM")] String VMName;	
+	[write,ValueMap{"Present", "Absent"},Values{"Present", "Absent"}] string Ensure;
+};
